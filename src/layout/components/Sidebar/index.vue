@@ -28,11 +28,13 @@ export default {
   components: { SidebarItem, Logo },
   computed: {
     ...mapGetters([
-      'sidebar'
+      'sidebar', 'routes'
     ]),
-    routes() {
-      return this.$router.options.routes
-    },
+    // 获取当前路由的路由表  permission => addRoutes 这里不会响应式变化
+    // routes() {
+    //   return this.$router.options.routes // 拿到所有路由 初始化时配置的路由规则
+    // },
+
     activeMenu() {
       const route = this.$route
       const { meta, path } = route
